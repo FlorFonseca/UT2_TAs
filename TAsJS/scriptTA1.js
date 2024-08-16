@@ -1,4 +1,5 @@
 
+
 /*Manipulacion de cadenas -----------------------*/ 
 function repeatString ( texto, repeticiones){
     for (i=0; i<repeticiones; i++){
@@ -44,4 +45,13 @@ let numeros = [2,5,3,6,8,9];
 let impares = getOdds(numeros);
 console.log(impares);
 
-function duplicate()
+function duplicates(nums){
+    const resultado = {};
+    nums.forEach(numero => {
+        resultado[numero] = (resultado[numero]||0)+1;/*numero sería el valor a buscar en el objeto. Si no existe se lo crea */
+    });
+    console.log(resultado);
+}
+
+let nums = [2,5,3,6,8,2,9,6,6,6,3,3];
+let duplicados = duplicates(nums);
