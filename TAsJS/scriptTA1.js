@@ -1,21 +1,35 @@
 
 
 /*Manipulacion de cadenas -----------------------*/ 
-function repeatString ( texto, repeticiones){
-    for (i=0; i<repeticiones; i++){
-        console.log(texto);
+function repeatString (){
+    const textoIngresado = document.getElementById('texto').value;
+    const repeticiones = parseInt(document.getElementById('repeticiones').value);
+    const resultado = document.getElementById('resultado');
+    
+    resultado.innerHTML = '';
+
+    for (let i=0; i<repeticiones; i++){
+        const p = document.createElement('p');
+        p.textContent=texto.value;
+        resultado.appendChild(p);
     }
 }
 
 
-function reverseString (texto){
+function reverseString (){
+    const textoIngresado = document.getElementById('texto').value;
+    const resultado = document.getElementById('resultado');
 
-    for (i=texto.length-1; i>=0; i--) {
-        console.log(texto[i]);
+    resultado.innerHTML = '';
+    
+    for (let i=textoIngresado.length-1; i>=0; i--) {
+        const p = document.createElement('p');
+        p.textContent=textoIngresado[i];
+        resultado.appendChild(p);
     }
 }
-repeatString("hola", 3);
-reverseString("hola");
+// repeatString("hola", 3);
+// reverseString("hola");
 
 /*Procesamiento de arreglos -----------------------*/
 
