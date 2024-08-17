@@ -3,7 +3,7 @@
 /*Manipulacion de cadenas -----------------------*/ 
 function repeatString (){
     const textoIngresado = document.getElementById('texto').value;
-    const repeticiones = parseInt(document.getElementById('repeticiones').value);
+    let repeticiones = parseInt(document.getElementById('repeticiones').value);
     const resultado = document.getElementById('resultado');
     
     resultado.innerHTML = '';
@@ -21,31 +21,46 @@ function reverseString (){
     const resultado = document.getElementById('resultado');
 
     resultado.innerHTML = '';
-    
+
+    const p = document.createElement('p');
     for (let i=textoIngresado.length-1; i>=0; i--) {
-        const p = document.createElement('p');
-        p.textContent=textoIngresado[i];
-        resultado.appendChild(p);
+        p.textContent += textoIngresado[i];
     }
+    resultado.appendChild(p);
 }
 // repeatString("hola", 3);
 // reverseString("hola");
 
 /*Procesamiento de arreglos -----------------------*/
 
-function removeFromArray ( arreglo, item){
-    arreglo=arreglo.filter((element)=>element!==item);
-    console.log(arreglo);
+function removeFromArray (){
+    const arrayIngresado = document.getElementById('arreglo').value.split(',');
+    let item = document.getElementById('elementoARemover').value;
+    let resultado = document.getElementById('resultado2');
+    
+    const arrayFiltrado = arrayIngresado.filter((element)=>element.trim()!==item);
+    resultado2.innerHTML = '';
+
+    const p = document.createElement('p');
+    p.textContent= arrayFiltrado.join(', ');
+    resultado.appendChild(p);
+    console.log(p.textContent);
+    
 }
-removeFromArray(["hola","chau","buenas"], "chau");
+// removeFromArray(["hola","chau","buenas"], "chau");
 
 
-function getTheTitles(books) {
-    return books.map(libro => libro.titulo);
+function getTheTitles() {
+    let libros = document.getElementById('libro').value;
+    let resultado = document.getElementById('resultado3');
+    
+    let libroFormateado = JSON.parse(libros);
+    const h1 = document.createElement('h1');
+    h1.textContent=libroFormateado.map(libro => libro.titulo);
+    resultado.appendChild(h1);
 }
-const libros = [{titulo: "Harry Potter y la piedra filosofal", autor: "J.K. Rowling"}, {titulo: "Orgullo y prejuicio", autor:"Jane Austen"}];
-const titles = getTheTitles(libros);
-console.log(titles);
+// const libros = [{"titulo": "Harry Potter y la piedra filosofal", "autor": "J.K. Rowling"}, {"titulo": "Orgullo y prejuicio", "autor":"Jane Austen"}];
+
 
 
 
