@@ -66,21 +66,53 @@ function getTheTitles() {
 
 /*Filtrado y Transformación -----------------------*/
 
-function getOdds (nums){
-    return nums.filter(numero => numero % 2 !== 0);/*puedo filtrar elementos del array que cumplan con cierta condición (en este caso que sean impares)*/
-}
+function getOdds (){
+    let arreglo = document.getElementById('arreglo').value.split(',').map(Number);
+    let resultado = document.getElementById('resultado4');
+    
+    const arrayFiltrado = arreglo.filter(numero => numero % 2 !== 0);/*puedo filtrar elementos del array que cumplan con cierta condición (en este caso que sean impares)*/
+    resultado.innerHTML = '';
 
-let numeros = [2,5,3,6,8,9];
-let impares = getOdds(numeros);
-console.log(impares);
+    const p = document.createElement('p');
 
-function duplicates(nums){
-    const resultado = {};
-    nums.forEach(numero => {
-        resultado[numero] = (resultado[numero]||0)+1;/*numero sería el valor a buscar en el objeto. Si no existe se lo crea */
+    arrayFiltrado.forEach(numero => {
+        p.textContent += numero + ", " ;
+        p.style.color = 'purple';
+        p.style.fontSize = '16px';
     });
-    console.log(resultado);
+    resultado.appendChild(p);
+
 }
 
-let nums = [2,5,3,6,8,2,9,6,6,6,3,3];
-let duplicados = duplicates(nums);
+
+function duplicates(){
+    let arreglo = document.getElementById('arregloDuplicados').value.split(',').map(Number);
+    let resultado = document.getElementById('resultado4');
+    const duplicados = {};
+    
+    arreglo.forEach(numero => {
+        if (duplicados[numero]) {
+            duplicados[numero]++;
+        } else {
+            duplicados[numero] = 1;
+        }
+    });
+
+    resultado.innerHTML = '';
+
+    Object.keys(duplicados).forEach(numero => {
+        if (duplicados[numero] > 1) { 
+            const h4 = document.createElement('h4');
+            const p = document.createElement('p');
+            
+            h4.textContent = `Numero duplicado: ${numero}`;
+            p.textContent = `Repeticiones: ${duplicados[numero]}`;
+            
+            resultado.appendChild(h4);
+            resultado.appendChild(p);
+        }
+    });
+}
+
+// let nums = [2,5,3,6,8,2,9,6,6,6,3,3];
+// let duplicados = duplicates(nums);
