@@ -59,7 +59,7 @@ function getTheTitles() {
     h1.textContent=libroFormateado.map(libro => libro.titulo);
     resultado.appendChild(h1);
 }
-// const libros = [{"titulo": "Harry Potter y la piedra filosofal", "autor": "J.K. Rowling"}, {"titulo": "Orgullo y prejuicio", "autor":"Jane Austen"}];
+// formato para los libros: [{"titulo": "Harry Potter y la piedra filosofal", "autor": "J.K. Rowling"}, {"titulo": "Orgullo y prejuicio", "autor":"Jane Austen"}];
 
 
 
