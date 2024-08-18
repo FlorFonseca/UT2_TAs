@@ -10,7 +10,7 @@ function repeatString (){
 
     for (let i=0; i<repeticiones; i++){
         const p = document.createElement('p');
-        p.textContent=texto.value;
+        p.textContent=textoIngresado;
         resultado.appendChild(p);
     }
 }
