@@ -38,8 +38,8 @@ function getTheOldest(){
     let personasFormateadas = JSON.parse(personas);
 
     let personaMasVieja = personasFormateadas.reduce((oldest, persona) => {
-        return (oldest.edad || 0) > persona.edad ? oldest : persona;
-    }, {});
+        return (oldest.edad || 0) > persona.edad ? oldest : persona; //si la edad de la persona no está definida, se considera 0. Se compara la edad de la persona ás vieja hasta el momento con la persona que está evaluando reduce() en ese momento. Se decide si oldest cambia o se mantiene.
+    }, {});//{} es el valor inicial de oldest
 
     const p = document.createElement('p');
     p.textContent=`${personaMasVieja.nombre} es la más vieja con ${personaMasVieja.edad} años`;
